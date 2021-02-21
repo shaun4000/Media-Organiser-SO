@@ -36,6 +36,11 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'artist_name' => 'required|max:255',
+            'description' => 'required|max:255',
+        ]);
+
         ray()->showQueries();
         // Store the artist details as a new artist
         $artist = new Artist;

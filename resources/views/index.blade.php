@@ -19,6 +19,7 @@
         <div class="card-body">
             @if ($allsongs->isEmpty())
             <h3 class="text-center">There are no songs to display</h3>
+            <div class="d-flex d-sm-flex justify-content-center align-items-center mt-4"><a class="btn btn-primary btn-sm d-sm-inline-block mb-1" role="button" href="{{ route('add-artist') }}"><i class="fas fa-edit fa-sm text-white-50"></i>&nbsp;Add an Artist to Create Songs</a></div>
             @else
             <p class="text-center">Click on a song in the table to view the song and it's details</p>
             <div class="table-responsive">

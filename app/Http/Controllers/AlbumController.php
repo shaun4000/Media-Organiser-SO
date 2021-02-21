@@ -64,13 +64,22 @@ class AlbumController extends Controller
         $album_id = Album::where('album_name',$request->album_name)->pluck('id');
         $arr = array("[","]");
         $id_num = str_replace($arr, "", $album_id);
-
+        // $files = $request->file('files');
         // Loop through the song entries and store them as new songs
+        $fileNum = 1;
+
         foreach ($request->songs as $song) {
+        // $extension = $request->file[1]->extension();
+        $f_name = $request->file[$fileNum]->getClientOriginalName();
+        $fileName = time().'_'.$f_name;
+        // dd($fileName);
+        $request->file[$fileNum]->move(public_path('uploads'), $fileName);
         DB::table('songs')->insert([
             'albums_id' => $id_num,
-            'song_name' => $song
+            'song_name' => $song,
+            'file_name' => $fileName
         ]);
+        $fileNum++;
         }
 
         //Redirect the user to show the recently stored album
