@@ -7,10 +7,26 @@
 @endsection
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+      {{ session('success') }}
+    </div>
+@endif
 
 <div class="container-fluid">
     <div class="d-sm-flex justify-content-between align-items-center mb-4">
         <h3 class="text-dark mb-0">All Songs</h3>
+        <div class="d-flex justify-content-center">
+            <form action="{{ route('db-backup') }}" method="get">
+                @csrf
+                <button type="submit" class="btn btn-primary mx-2">Save Data</button>
+            </form>
+            <form action="{{ route('db-upload') }}" method="get">
+                @csrf
+                <button type="submit" class="btn btn-primary mx-2">Load Data</button>
+            </form>
+                <button class="btn btn-danger mx-2" type="button" href="#clean_db" data-toggle="modal">Clean Media Organiser</button>
+        </div>
     </div>
     <div class="card shadow">
         <div class="card-header py-3">
@@ -34,7 +50,7 @@
                     </thead>
                     <tbody>
                         @foreach ($allsongs as $song)
-                        <tr onclick="location.href='/show-song?id={{$song->id}}'">
+                        <tr onclick="location.href='/show-song?id={{$song->id}}'" style="cursor: pointer;">
                             <td>{{$song->song_name}}</td>
                             <td>{{$song->album->album_name}}</td>
                             <td>{{$song->album->artist->artist_name}}</td>
@@ -57,8 +73,29 @@
     </div>
 </div>
 
+<!-- Add Clean DB Model -->
+<div role="dialog" tabindex="-1" class="modal fade" id="clean_db">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">ARE YOU SURE?</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>This will delete all songs and images from the local system and clean the Database</p>
+                <form action="{{ route('db-clean') }}" method="get">
+                    @csrf
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" name="add" class="btn btn-danger">I'm Sure</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script')
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="/assets/js/datatable.js"></script>
 @endsection

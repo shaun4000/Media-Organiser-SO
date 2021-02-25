@@ -20,22 +20,22 @@
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">Add Artist Details</p>
         </div>
-        <div class="card-body">
+        <div class="card-body d-flex justify-content-center">
             <form method="POST" action="add-artist">
                 @csrf
-                <div class="form-group">
+                <div class="form-group input-width">
                     <label class="labels" for="artist_name">
                         <strong>Artist Name</strong>
                     </label>
                     <input class="form-control inputs" type="text" name="artist_name" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group input-width">
                     <label class="labels" for="description">
                         <strong>Description</strong>
                     </label>
                     <input class="form-control inputs" type="text" name="description" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group input-width">
                     <button class="btn btn-primary btn-sm" type="submit">Save Artist</button>
                 </div>
             </form>

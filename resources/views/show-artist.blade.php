@@ -34,7 +34,7 @@
                         </thead>
                         <tbody>
                             @foreach ($artist_data->albums as $album)
-                            <tr onclick="location.href='/show-album?id={{$album->id}}'">
+                            <tr onclick="location.href='/show-album?id={{$album->id}}'" style="cursor: pointer;">
                                 <td>{{$album->album_name}}</td>
                             </tr>
                             @endforeach

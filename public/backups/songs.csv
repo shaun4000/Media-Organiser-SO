@@ -1,0 +1,3 @@
+id,albums_id,song_name,file_name,file_type,file_size,file_location,comment,created_at,updated_at
+3,2,Easily,"1614261856_01 - Easily.mp3",mp3,"5.15 MB",/public/uploads/songs,,,
+4,2,Futurism,"1614261856_02 - Futurism.mp3",mp3,"4.86 MB",/public/uploads/songs,,,

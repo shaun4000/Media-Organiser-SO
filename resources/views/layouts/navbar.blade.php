@@ -3,8 +3,10 @@
         <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-1">
             <ul class="nav navbar-nav">
                 <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('playlists') }}">Playlists</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('add-artist') }}">Add Artist</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('add-album') }}">Add Album</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Categories</a></li>
             </ul>
         </div>
     </div>

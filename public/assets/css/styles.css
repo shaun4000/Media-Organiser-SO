@@ -32,13 +32,7 @@ table {
 
 @media (max-width: 675px) {
   #dataTable th, td {
-    font-size: 4vw;
-  }
-}
-
-@media (max-width: 675px) {
-  .showing {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 }
 
@@ -51,7 +45,23 @@ body {
 }
 
 .main-section {
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 100px;
 }
 
+.input-width {
+    min-width: 400px;
+    max-width: 800px;
+}
+
+@media (max-width: 465px) {
+    .input-width {
+        min-width: 300px;
+    }
+  }
+
+  @media (max-width: 345px) {
+    .input-width {
+        min-width: 200px;
+    }
+  }
