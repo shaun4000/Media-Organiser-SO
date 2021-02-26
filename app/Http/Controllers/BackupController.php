@@ -155,4 +155,16 @@ class BackupController extends Controller
             return back()->with('success', 'Everything Cleared Successfully');
         }
 
+        public function userGuide() {
+
+            //PDF file is stored under project/public/download/info.pdf
+            $file = public_path('User_Guide_Media_Organiser.docx');
+
+            $headers = array(
+              'Content-Type: application/docx',
+            );
+
+        return response()->download($file, 'User_Guide.docx', $headers);
+        }
+
 }

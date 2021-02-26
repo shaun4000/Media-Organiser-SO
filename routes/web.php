@@ -56,3 +56,6 @@ Route::post('delete-category/{id?}', 'App\Http\Controllers\CategoryController@de
 Route::get('db-backup', 'App\Http\Controllers\BackupController@backupDB')->name('db-backup');
 Route::get('db-upload', 'App\Http\Controllers\BackupController@uploadDB')->name('db-upload');
 Route::get('db-clean', 'App\Http\Controllers\BackupController@cleanDB')->name('db-clean');
+
+// Download the User Guide
+Route::get('uder-guide', 'App\Http\Controllers\BackupController@userGuide')->name('user-guide');

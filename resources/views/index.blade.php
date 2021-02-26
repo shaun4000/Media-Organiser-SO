@@ -71,6 +71,12 @@
             @endif
         </div>
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        <form action="{{ route('user-guide') }}" method="get">
+            @csrf
+            <button type="submit" class="btn btn-primary px-2">Download User Guide</button>
+        </form>
+    </div>
 </div>
 
 <!-- Add Clean DB Model -->
