@@ -47,5 +47,29 @@ class RouteTest extends TestCase
         $response->assertViewIs('add-artist');
     }
 
+   /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testPlaylists()
+    {
+        $response = $this->get(route('playlists'));
 
+        $response->assertStatus(200);
+        $response->assertViewIs('playlists');
+    }
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testCategories()
+    {
+        $response = $this->get(route('categories'));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('categories');
+    }
 }
