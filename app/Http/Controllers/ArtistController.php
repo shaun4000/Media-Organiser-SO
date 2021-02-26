@@ -25,6 +25,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
+        // Return the add-artist view
         return view('add-artist');
     }
 
@@ -36,22 +37,24 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        // If validation fails the user will be returned to the previous page
         $validated = $request->validate([
             'artist_name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'max:255',
         ]);
 
-        ray()->showQueries();
         // Store the artist details as a new artist
         $artist = new Artist;
         $artist->artist_name = $request->artist_name;
         $artist->description = $request->description;
         $artist->save();
 
+        // Get the id of the currently made album to pass to the route
         $artist_id = Artist::where('artist_name', $request->artist_name)->pluck('id');
         $arr = array("[","]");
         $id_num = str_replace($arr, "", $artist_id);
-        // return redirect()->route('show-artist', ['id' => $artist_id]);
+
+        // Redirect to the show-artist route with the currently made artist's id
         return redirect()->route('show-artist', ['id' => $id_num]);
     }
 
@@ -63,10 +66,10 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist, Request $request)
     {
-        ray()->showQueries();
-        // $artist_data = Artist::find($request->id)->first();
+        // Get the artists details where ID equals the id passed from the view
         $artist_data = Artist::where('id', $request->id)->first();
-        // dd($artist_data);
+
+        // Pass the artist details to the show-artist view
         return view('show-artist', compact('artist_data'));
     }
 
@@ -78,8 +81,10 @@ class ArtistController extends Controller
      */
     public function edit(Artist $artist, Request $request)
     {
+        // Get the artist details where ID equals the id passed from the view
         $artist = Artist::where('id',$request->id)->first();
 
+        // Pass the artist details to the edit-artist view
         return view('edit-artist', compact('artist'));
     }
 
@@ -92,7 +97,11 @@ class ArtistController extends Controller
      */
     public function update(Request $request, Artist $artist)
     {
-        ray()->showQueries();
+        // If validation fails the user will be returned to the previous page
+        $validated = $request->validate([
+            'artist_name' => 'required|max:255',
+            'description' => 'max:255',
+        ]);
 
         // Updates the project details into the database projects table
         $artist = Artist::where('id',$request->id)->first();
@@ -100,6 +109,7 @@ class ArtistController extends Controller
         $artist->description = $request->description;
         $artist->save();
 
+        // Get the artists id
         $id = $artist->id;
 
         // Push the project details to the show-project view
@@ -114,9 +124,10 @@ class ArtistController extends Controller
      */
     public function destroy(Artist $artist, Request $request)
     {
-        //
+        // Delete the artist where ID equals the id passed from the view
         Artist::destroy($request->id);
 
+        // Open the index view via the home route
         return redirect()->route('home');
     }
 }

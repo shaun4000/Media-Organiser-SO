@@ -33,7 +33,7 @@
                     <label class="labels" for="description">
                         <strong>Description</strong>
                     </label>
-                    <input class="form-control inputs" type="text" name="description" required>
+                    <input class="form-control inputs" type="text" name="description">
                 </div>
                 <div class="form-group input-width">
                     <button class="btn btn-primary btn-sm" type="submit">Save Artist</button>

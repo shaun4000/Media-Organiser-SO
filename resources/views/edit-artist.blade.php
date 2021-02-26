@@ -28,7 +28,7 @@
                     <label class="labels" for="artist_name">
                         <strong>Artist Name</strong>
                     </label>
-                    <input class="form-control inputs" type="text" name="artist_name" value="{{$artist->artist_name}}">
+                    <input class="form-control inputs" type="text" name="artist_name" value="{{$artist->artist_name}}" required>
                 </div>
                 <div class="form-group input-width">
                     <label class="labels" for="description">

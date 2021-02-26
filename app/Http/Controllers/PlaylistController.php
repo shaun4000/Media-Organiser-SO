@@ -46,6 +46,10 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
+        // If validation fails the user will be returned to the previous page
+        $validated = $request->validate([
+            'playlist_name' => 'required|max:255',
+        ]);
 
         // Store the playlist details into the database playlists table
         $newPlaylist = new Playlist;
@@ -112,6 +116,10 @@ class PlaylistController extends Controller
      */
     public function update(Request $request)
     {
+        // If validation fails the user will be returned to the previous page
+        $validated = $request->validate([
+            'playlist_name' => 'required|max:255',
+        ]);
 
         // Updates the playlist details into the database playlists table
         $updatePlaylist = Playlist::where('id',$request->id)->first();

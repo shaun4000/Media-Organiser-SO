@@ -28,14 +28,14 @@
                     <label class="labels" for="album_name">
                         <strong>Album Name</strong>
                     </label>
-                    <input class="form-control inputs" type="text" name="album_name" value="{{$album->album_name}}">
+                    <input class="form-control inputs" type="text" name="album_name" value="{{$album->album_name}}" required>
                 </div>
                 <hr />
                 <div class="form-group input-width">
                     <label class="labels" for="artists_id">
                         <strong>Artist</strong>
                     </label>
-                    <select class="form-control" name="artists_id">
+                    <select class="form-control" name="artists_id" required>
                         <optgroup label="Choose an Artist">
                             @foreach ($artists as $artist)
                             @if ($album->artists_id == $artist->id)
@@ -70,7 +70,7 @@
                     <label class="labels" for="category">
                         <strong>Category</strong>
                     </label>
-                    <select class="form-control" name="category">
+                    <select class="form-control" name="category" required>
                         <optgroup label="Choose a Category">
                             @foreach ($categories as $category)
                             @if ($album->category == $category->name)

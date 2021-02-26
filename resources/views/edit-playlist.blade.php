@@ -29,7 +29,7 @@
                         <label class="labels" for="playlist_name">
                             <strong>Playlist Name</strong><br />
                         </label>
-                        <input type="text" class="form-control inputs" name="playlist_name" value="{{$playlist->playlist_name}}"/>
+                        <input type="text" class="form-control inputs" name="playlist_name" value="{{$playlist->playlist_name}}" required/>
                     </div>
                     <div class="table-responsive input-width">
                         <table class="table">

@@ -31,13 +31,13 @@
                     <label class="labels" for="album_name">
                         <strong>Album Name</strong>
                     </label>
-                    <input class="form-control inputs" type="text" name="album_name">
+                    <input class="form-control inputs" type="text" name="album_name" required>
                 </div>
                 <div class="form-group input-width">
                     <label class="labels" for="artists_id">
                         <strong>Artist</strong>
                     </label>
-                    <select class="form-control" name="artists_id">
+                    <select class="form-control" name="artists_id" required>
                         <optgroup label="Choose an Artist">
                             @foreach ($artists as $artist)
                             <option value="{{$artist->id}}">{{$artist->artist_name}}</option>
@@ -52,7 +52,7 @@
                     <input type="file" class="form-control-file mb-2" name="img"/>
                 </div>
                 <div class="form-group input-width"><label class="labels" for="category"><strong>Category</strong></label><select class="form-control" name="category">
-                        <optgroup label="Choose a Category">
+                        <optgroup label="Choose a Category" required>
                             @foreach ($categories as $category)
                             <option value="{{$category->name}}">{{$category->name}}</option>
                             @endforeach
@@ -66,9 +66,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text inputs">Song Name</span>
                         </div>
-                        <input class="form-control inputs" type="text" name="songs[1]">
+                        <input class="form-control inputs" type="text" name="songs[1]" required>
                     </div>
-                    <input type="file" class="form-control-file mb-2 border rounded" name="file[1]"/>
+                    <input type="file" class="form-control-file mb-2 border rounded" name="file[1]" required/>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text inputs">Song Comments</span>

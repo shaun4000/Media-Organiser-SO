@@ -3,7 +3,15 @@
 @section('title', 'Show Song')
 
 @section('content')
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container-fluid">
     <div class="mb-4">
         <div class="d-flex justify-content-center">
@@ -76,7 +84,7 @@
                     @csrf
                     <div class="form-group">
                             <label class="control-label" style="position:relative; top:7px;">Comments:</label>
-                            <input type="text" class="form-control" name="comment" value="{{$song_data->comment}}">
+                            <input type="text" class="form-control" name="comment" value="{{$song_data->comment}}" required>
                     </div>
                         <button type="submit" name="add" class="btn btn-primary">Save Comment</button>
                 </form>

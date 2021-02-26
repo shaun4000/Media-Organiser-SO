@@ -1,3 +1,4 @@
 id,albums_id,song_name,file_name,file_type,file_size,file_location,comment,created_at,updated_at
-1,1,Easily,"1614332385_01 - Easily.mp3",mp3,"5.15 MB",/public/uploads/songs,,,
-2,1,Futurism,"1614332385_02 - Futurism.mp3",mp3,"4.86 MB",/public/uploads/songs,,,
+1,1,"Keys to the Kingdom","1614351053_01 Keys To The Kingdom.mp3",mp3,"8.39 MB",/public/uploads/songs,"Great Song",,"2021-02-26 14:51:14"
+2,1,"A Line in the Sand","1614351053_12 A Line In The Sand.mp3",mp3,"15.22 MB",/public/uploads/songs,,,
+3,2,Fire,"1614351125_10. Gavin Degraw - Fire.mp3",mp3,"8.72 MB",/public/uploads/songs,,,

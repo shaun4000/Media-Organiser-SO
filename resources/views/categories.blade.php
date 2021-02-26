@@ -9,6 +9,15 @@
       {{ session('success') }}
     </div>
 @endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="container-fluid">
     <div class="d-sm-flex justify-content-between align-items-center mb-4">
@@ -58,7 +67,7 @@
                     @csrf
                     <div class="row form-group px-4">
                             <label class="control-label" style="position:relative; top:7px;">Category Name:</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

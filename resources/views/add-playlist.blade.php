@@ -24,7 +24,7 @@
             <div class="card-body d-flex justify-content-center">
                 <form method="POST" action="add-playlist">
                     @csrf
-                    <div class="form-group input-width"><label class="labels" for="playlist_name"><strong>Playlist Name</strong><br /></label><input type="text" class="form-control inputs" name="playlist_name" /></div>
+                    <div class="form-group input-width"><label class="labels" for="playlist_name"><strong>Playlist Name</strong><br /></label><input type="text" class="form-control inputs" name="playlist_name" required/></div>
                     <div class="table-responsive input-width">
                         <table class="table">
                             <thead>
