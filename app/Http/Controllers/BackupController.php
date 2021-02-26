@@ -13,14 +13,6 @@ class BackupController extends Controller
 {
     public function backupDB () {
 
-            /*
-            Needed in SQL File:
-
-            SET GLOBAL sql_mode = '';
-            SET SESSION sql_mode = '';
-            */
-            $get_all_table_query = "SHOW TABLES";
-            $result = DB::select(DB::raw($get_all_table_query));
 
             $tables = [
                 'artists',
@@ -42,18 +34,6 @@ class BackupController extends Controller
                     fputcsv($handle, array_keys(json_decode(json_encode($records[0]), true)));
 
                 }
-
-
-                // foreach ($records as $record) {
-
-                //     $record = (array)$record;
-
-                //     $table_column_array = array_keys($record);
-
-                //     fputcsv($handle, $table_column_array);
-
-                //     break;
-                // }
 
                 foreach ($records as $record) {
 

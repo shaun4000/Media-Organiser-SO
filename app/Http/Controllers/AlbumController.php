@@ -9,6 +9,7 @@ use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use Symfony\Component\VarDumper\VarDumper;
 
 class AlbumController extends Controller
@@ -20,7 +21,10 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        if (!Schema::hasTable('artists')) {
+            return view('run-migrations');
+        }
+
         $allsongs = Song::all();
 
         return view('index', compact('allsongs'));
